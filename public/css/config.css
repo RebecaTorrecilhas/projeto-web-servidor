@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+
+body {
+	font-family: 'Inter', sans-serif;
+	background: #1F1D2F;
+}
+
+header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #1F1D2F;
+	height: 96px;
+	border-bottom: 1px solid #48465B;
+}
+
+a:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+input {
+	border-radius: 4px;
+	background: transparent;
+	color: #FFFFFF;
+	border: 1px solid #48465B;
+	height: 48px;
+	padding: 16px;
+}
+
+input:hover,
+input:focus {
+	border: 1px solid #403e50;
+}
+
+.semibold-40 {
+	font-weight: 600;
+	font-size: 40px;
+	line-height: 52px;
+}
+
+.semibold-24 {
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 30px;
+}
+
+.semibold-16 {
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 30px;
+	letter-spacing: 10%;
+}
+
+.semibold-12 {
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.regular-24 {
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 30px;
+}
+
+.regular-16 {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.regular-12 {
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.bold {
+	font-weight: 700;
+}
+
+.semibold {
+	font-weight: 600;
+}
+
+.regular {
+	font-weight: 400;
+}
+
+.color-gray-100 {
+	color: #1F1D2F;
+}
+
+.color-gray-200 {
+	color: #282639;
+}
+
+.color-gray-300 {
+	color: #48465B;
+}
+
+.color-gray-400 {
+	color: #636177;
+}
+
+.color-gray-500 {
+	color: #B5B3CB;
+}
+
+.color-white {
+	color: #FFFFFF;
+}
+
+.color-error {
+	color: #E43E3E;
+}
+
+.color-warning {
+	color: #E4B63E;
+}
+
+.color-success {
+	color: #3EE48A;
+}
+
+.color-info {
+	color: #5F3EE4;
+}
+
+.bg-gray-100 {
+	background: #1F1D2F;
+}
+
+.bg-gray-200 {
+	background: #282639;
+}
+
+.bg-gray-300 {
+	background: #48465B;
+}
+
+.bg-gray-400 {
+	background: #636177;
+}
+
+.bg-gray-500 {
+	background: #B5B3CB;
+}
+
+.bg-error {
+	background: #E43E3E;
+}
+
+.bg-warning {
+	background: #E4B63E;
+}
+
+.bg-success {
+	background: #3EE48A;
+}
+
+.bg-info {
+	background: #5F3EE4;
+}
+
+.button-primary {
+	width: 100%;
+	background: #1F1D2F;
+	color: #FFFFFF;
+	font-weight: 600;
+	font-size: 16px;
+	border: none;
+	border-radius: 4px;
+	padding: 16px 40px;
+}
+
+.button-primary:hover,
+.button-primary:focus {
+	background-color: #171522;
+}
+
+@media screen and (max-width: 576px) {
+	.semibold-24 {
+		font-size: 20px;
+		line-height: 24px;
+	}
+}

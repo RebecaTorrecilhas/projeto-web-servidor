@@ -1,14 +1,14 @@
 <html>
 
 <head>
-	<title>Dashboard</title>
+	<title>Catalogo</title>
 
 	<meta name="viewport" content="width=device-width, height=device-height, user-scalable=no" />
 
 	<link rel="shortcut icon" href="/public/images/favicon.png" />
 	<link rel="stylesheet" href="/public/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/public/css/config.css">
-	<link rel="stylesheet" href="/public/css/index.css">
+	<link rel="stylesheet" href="/public/css/catalogo.css">
 </head>
 
 <body>

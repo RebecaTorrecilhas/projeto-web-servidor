@@ -1,27 +1,40 @@
 <?php
 
 require_once 'model/Usuario.php';
+require_once 'utils/Utils.php';
+require_once 'utils/Validation.php';
 
 class AuthController {
+	public $errors = [];
 
 	public function index() {
-		require 'utils/Utils.php';
-
 		redirectLogged();
 
 		require_once 'view/login.view.php';
 	}
 
-	public function login() {
-		require 'utils/Utils.php';
-
+	public function cadastrar() {
 		redirectLogged();
 
-		//validar formulario
+		require_once 'view/cadastrar.view.php';
+	}
+
+	public function login() {
+		redirectLogged();
+
+		$this->errors = validationLogin($_POST);
+
+		if (count($this->errors) > 0) {
+			AuthController::index();
+
+			return;
+		} else {
+			$this->errors = [];
+		}
 
 		$usuario = new Usuario();
 
-		// TODO conectar DB
+		// TODO conectar DB e remover esse trecho
 		$_SESSION['id'] = 1;
 		$_SESSION['email'] = 'andre@gmail.com';
 		$_SESSION['nome'] = 'Andre';
@@ -36,8 +49,28 @@ class AuthController {
 
 			header('Location: /');
 		} else {
-			// devolver usuario/senha incorretos
+			$this->errors['password'] = "Usuário ou senhas incorretos";
 		}
+	}
+
+	public function store() {
+		redirectLogged();
+
+		$this->errors = validationCadastro($_POST);
+
+		if (count($this->errors) > 0) {
+			AuthController::cadastrar();
+
+			return;
+		} else {
+			$this->errors = [];
+		}
+
+		$_SESSION['id'] = 1;
+		$_SESSION['email'] = 'andre@gmail.com';
+		$_SESSION['nome'] = 'Andre';
+
+		header('Location: /');
 	}
 
 	public function logout() {
@@ -47,6 +80,6 @@ class AuthController {
 		unset($_SESSION['email']);
 		unset($_SESSION['nome']);
 
-		header('Location: /auth');
+		header('Location: /entrar');
 	}
 }
