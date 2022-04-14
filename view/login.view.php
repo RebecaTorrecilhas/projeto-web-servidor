@@ -37,7 +37,7 @@
 				<button type="submit" class="button-primary">Entrar</button>
 			</form>
 
-			<a class="text-center regular-16 color-gray-500" href="/#">Esqueceu a senha?</a>
+			<a class="text-center regular-16 color-gray-500" href="/esqueceu-senha">Esqueceu a senha?</a>
 
 			<div class="d-flex justify-content-center align-items-center">
 				<hr class="bg-gray-500" width="40%" />

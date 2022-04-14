@@ -6,6 +6,7 @@ require_once 'utils/Validation.php';
 
 class AuthController {
 	public $errors = [];
+	public $success = [];
 
 	public function index() {
 		redirectLogged();
@@ -19,8 +20,22 @@ class AuthController {
 		require_once 'view/cadastrar.view.php';
 	}
 
+	public function esqueceuSenha() {
+		redirectLogged();
+
+		require_once 'view/esqueceu-senha.view.php';
+	}
+
+	public function recuperarSenha() {
+		redirectLogged();
+
+		require_once 'view/recuperar-senha.view.php';
+	}
+
 	public function login() {
 		redirectLogged();
+
+		requestOnlyPost();
 
 		$this->errors = validationLogin($_POST);
 
@@ -56,6 +71,8 @@ class AuthController {
 	public function store() {
 		redirectLogged();
 
+		requestOnlyPost();
+
 		$this->errors = validationCadastro($_POST);
 
 		if (count($this->errors) > 0) {
@@ -74,6 +91,8 @@ class AuthController {
 	}
 
 	public function logout() {
+		requestOnlyPost();
+
 		session_start();
 
 		unset($_SESSION['id']);
@@ -81,5 +100,45 @@ class AuthController {
 		unset($_SESSION['nome']);
 
 		header('Location: /entrar');
+	}
+
+	public function forgotPassword() {
+		redirectLogged();
+
+		requestOnlyPost();
+
+		$this->errors = validationEsqueceuSenha($_POST);
+
+		if (count($this->errors) > 0) {
+			AuthController::esqueceuSenha();
+
+			return;
+		} else {
+			$this->errors = [];
+		}
+
+		// TODO
+
+		$this->success = 'Confira sua caixa de e-mail para alterar a senha.';
+	}
+
+	public function resetPassword() {
+		redirectLogged();
+
+		requestOnlyPost();
+
+		$this->errors = validationRecuperarSenha($_POST);
+
+		if (count($this->errors) > 0) {
+			AuthController::recuperarSenha();
+
+			return;
+		} else {
+			$this->errors = [];
+		}
+
+		// TODO
+
+		$this->success = 'Senha alterada com sucesso!';
 	}
 }

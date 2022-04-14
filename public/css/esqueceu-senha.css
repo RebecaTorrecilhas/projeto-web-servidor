@@ -1,0 +1,53 @@
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	width: 588px;
+	margin-top: 72px;
+	margin-bottom: 24px;
+	padding: 64px 102px;
+	border-radius: 8px;
+}
+
+.card h5 {
+	margin-bottom: 4px;
+}
+
+form {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.text-field {
+	margin-bottom: 40px;
+}
+
+.text-field p {
+	margin-top: 2px;
+}
+
+input {
+	width: 100%;
+}
+
+.divider {
+	margin-top: 16px;
+	margin-bottom: 16px;
+}
+
+@media screen and (max-width: 567px) {
+	.card {
+		width: 100%;
+		padding: 24px;
+	}
+
+	form {
+		margin-top: 24px;
+		margin-bottom: 24px;
+	}
+}
