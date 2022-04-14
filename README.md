@@ -13,3 +13,21 @@ Projeto da matéria Desenvolvimento Web-Servidor
 - PHP 7.3;
 
 ## ⚠️ Observações
+
+### Integrantes
+
+- Andre Tohouca Lacomski;
+- Luiz Guilherme Monteiro;
+- Rebeca Torrecilhas;
+
+### Desenvolvimento
+
+- Andre: Estrutura base e padronização de MVC;
+- Luiz: Correção das rotas de view e chamadas dos Controllers;
+- Rebeca: Design e validações de esqueceu senha e recuperar senha;
+
+### Faltando
+
+- Finalizar implementações das telas autenticadas;
+- Conectar as telas com Banco de dados;
+- Conectar a API The Movie DB para listar os filmes;
