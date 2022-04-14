@@ -9,6 +9,8 @@ header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	width: 100%;
+	padding: 0px 20px;
 	background: #1F1D2F;
 	height: 96px;
 	border-bottom: 1px solid #48465B;
@@ -152,20 +154,12 @@ input:focus {
 	background: #B5B3CB;
 }
 
-.bg-error {
-	background: #E43E3E;
-}
-
-.bg-warning {
-	background: #E4B63E;
-}
-
-.bg-success {
-	background: #3EE48A;
-}
-
-.bg-info {
-	background: #5F3EE4;
+.success {
+	width: 100%;
+	padding: 12px 0px;
+	color: #FFFFFF;
+	text-align: center;
+	border-radius: 4px;
 }
 
 .button-primary {
@@ -182,6 +176,15 @@ input:focus {
 .button-primary:hover,
 .button-primary:focus {
 	background-color: #171522;
+}
+
+.header-usuario {
+	display: flex;
+	align-items: center;
+}
+
+.header-usuario a:first-of-type {
+	margin-right: 8px;
 }
 
 @media screen and (max-width: 576px) {

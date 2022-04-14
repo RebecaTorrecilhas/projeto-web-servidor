@@ -42,7 +42,7 @@
 				<button type="submit" class="button-primary">Cadastrar</button>
 			</form>
 
-			<p class="regular-12 color-gray-500">Ao clicar em cadastrar, você está aceitando os Termos e Condições e a Política de Privacidade.</p>
+			<p class="regular-12 color-gray-500 text-center">Ao clicar em cadastrar, você está aceitando os Termos e Condições e a Política de Privacidade.</p>
 
 			<div class="d-flex justify-content-center align-items-center">
 				<hr class="bg-gray-500" width="40%" />

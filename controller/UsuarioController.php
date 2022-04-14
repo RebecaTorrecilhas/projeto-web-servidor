@@ -11,6 +11,12 @@ class UsuarioController {
 		require_once 'view/perfil.view.php';
 	}
 
+	public function editarPerfil() {
+		redirectNotLogged();
+
+		require_once 'view/editar-perfil.view.php';
+	}
+
 	public function store() {
 		redirectNotLogged();
 

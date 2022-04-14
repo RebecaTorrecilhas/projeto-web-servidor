@@ -20,6 +20,10 @@
 
 	<div class="container">
 		<div class="card bg-gray-200">
+			<?php if ($this->success) { ?>
+				<p class="success bg-success"><?php echo $this->success ?? '' ?></p>
+			<?php } ?>
+
 			<h5 class="text-center semibold-24 color-white">Alterar senha</h5>
 			<p class="text-center regular-16 color-gray-500 mb-0">Informe uma nova senha para alterar</p>
 

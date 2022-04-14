@@ -6,7 +6,6 @@ $class = 'IndexController';
 $method = 'index';
 
 switch ($path) {
-	// Rotas de views
 	case '/cadastrar':
 		$class = 'AuthController';
 		$method = 'cadastrar';
@@ -27,10 +26,36 @@ switch ($path) {
 		$method = 'recuperarSenha';
 
 		break;
+	case '':
+		$class = 'IndexController';
+		$method = 'index';
 
-	// TODO adicionar a rota das outras views
+		break;
+	case '/catalogo':
+		$class = 'CatalogoController';
+		$method = 'index';
 
-	// Rotas de ações
+		break;
+	case '/catalogo/detalhes':
+		$class = 'CatalogoController';
+		$method = 'detalhes';
+
+		break;
+	case '/avaliacao':
+		$class = 'AvaliacaoController';
+		$method = 'avaliacao';
+
+		break;
+	case '/editar-perfil':
+		$class = 'UsuarioController';
+		$method = 'editarPerfil';
+
+		break;
+	case '/perfil':
+		$class = 'UsuarioController';
+		$method = 'index';
+
+		break;
 	case '/auth/login':
 		$class = 'AuthController';
 		$method = 'login';
@@ -54,11 +79,6 @@ switch ($path) {
 	case '/auth/cadastrar':
 		$class = 'AuthController';
 		$method = 'store';
-
-		break;
-	case '':
-		$class = 'IndexController';
-		$method = 'index';
 
 		break;
 	default:

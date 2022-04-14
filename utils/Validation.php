@@ -59,6 +59,10 @@ function validationEsqueceuSenha($data) {
 function validationRecuperarSenha($data) {
 	$errors = [];
 
+	if (!isset($data['token']) || empty($data['token'])) {
+		$errors['token'] = 'Não foi possível alterar a senha, token não enviado';
+	}
+
 	if (!isset($data['password']) || empty($data['password'])) {
 		$errors['password'] = 'Nova senha é um campo obrigatório';
 	}

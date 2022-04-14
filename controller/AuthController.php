@@ -6,7 +6,7 @@ require_once 'utils/Validation.php';
 
 class AuthController {
 	public $errors = [];
-	public $success = [];
+	public $success = null;
 
 	public function index() {
 		redirectLogged();
@@ -51,7 +51,7 @@ class AuthController {
 
 		// TODO conectar DB e remover esse trecho
 		$_SESSION['id'] = 1;
-		$_SESSION['email'] = 'andre@gmail.com';
+		$_SESSION['email'] = $_POST['email'];
 		$_SESSION['nome'] = 'Andre';
 
 		header('Location: /');
@@ -84,8 +84,8 @@ class AuthController {
 		}
 
 		$_SESSION['id'] = 1;
-		$_SESSION['email'] = 'andre@gmail.com';
-		$_SESSION['nome'] = 'Andre';
+		$_SESSION['email'] = $_POST['email'];
+		$_SESSION['nome'] = $_POST['nome'];
 
 		header('Location: /');
 	}
@@ -120,6 +120,8 @@ class AuthController {
 		// TODO
 
 		$this->success = 'Confira sua caixa de e-mail para alterar a senha.';
+
+		AuthController::esqueceuSenha();
 	}
 
 	public function resetPassword() {
@@ -140,5 +142,7 @@ class AuthController {
 		// TODO
 
 		$this->success = 'Senha alterada com sucesso!';
+
+		AuthController::recuperarSenha();
 	}
 }
