@@ -1,14 +1,40 @@
 <?php
 
-class Usuario {
+require_once 'utils/DB.php';
 
+class Usuario {
 	private $id;
 	private $email;
 	private $password;
-	private $nome;
+	private $usu_nome;
+	private $usu_id_foto;
 
-	public function store() {
-		// TODO
+	static public function store($data) {
+		$db = DB::connect();
+
+		$sql = 'INSERT INTO usuarios(email, password, usu_nome, created_at, updated_at) VALUES(:email, :senha, :nome, :created, :updated)';
+
+		$query = $db->prepare($sql);
+
+		$query->execute([
+			':email' => $data['email'],
+			':senha' => password_hash($data['password'], PASSWORD_DEFAULT),
+			':nome' => $data['nome'],
+			':created' => date("Y-m-d H:i:s"),
+			':updated' => date("Y-m-d H:i:s")
+		]);
+
+		$id = $db->lastInsertId();
+
+		if ($id) {
+			$query = $db->prepare("SELECT * FROM usuarios WHERE id = {$id};");
+
+			$query->execute();
+
+			return $query->fetchObject('Usuario');
+		}
+
+		return false;
 	}
 
 	public function update() {
@@ -16,11 +42,35 @@ class Usuario {
 	}
 
 	public function get() {
-		// TODO
+		if (!$this->id) {
+			return false;
+		}
+
+		$db = DB::connect();
+
+		$query = $db->prepare("SELECT * FROM usuarios WHERE id = {$this->id};");
+
+		$query->execute();
+
+		return $query->fetchObject('Usuario');
+	}
+
+	static public function getByEmail($email) {
+		$db = DB::connect();
+
+		$query = $db->prepare("SELECT * FROM usuarios WHERE email = '$email';");
+
+		$query->execute();
+
+		return $query->fetchObject('Usuario');
 	}
 
 	public function destroy() {
-		// TODO
+		$db = DB::connect();
+
+		$query = $db->prepare("DELETE FROM usuarios WHERE id = {$this->id}");
+
+		return $query->execute();
 	}
 
 	public function setId($id) {
@@ -35,8 +85,12 @@ class Usuario {
 		$this->password = $password;
 	}
 
-	public function setNome($nome) {
-		$this->nome = $nome;
+	public function setNome($usu_nome) {
+		$this->usu_nome = $usu_nome;
+	}
+
+	public function setFoto($usu_id_foto) {
+		$this->usu_id_foto = $usu_id_foto;
 	}
 
 	public function getId() {
@@ -52,6 +106,10 @@ class Usuario {
 	}
 
 	public function getNome() {
-		return $this->nome;
+		return $this->usu_nome;
+	}
+
+	public function getFoto() {
+		return $this->usu_id_foto;
 	}
 }

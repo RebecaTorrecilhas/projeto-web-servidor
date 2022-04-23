@@ -4,6 +4,7 @@ Projeto da matéria Desenvolvimento Web-Servidor
 
 ## :wrench: Setup
 
+- Na pasta database importar o arquivo dump_inicial.sql no seu MySql;
 - Na pasta do projeto modifique o `./utils/Constants.php` com os acessos necessários para bancos de dados;
 - Para rodar: `php -S localhost:8000`;
 

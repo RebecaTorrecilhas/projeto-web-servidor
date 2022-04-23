@@ -47,25 +47,21 @@ class AuthController {
 			$this->errors = [];
 		}
 
-		$usuario = new Usuario();
+		$usuario = Usuario::getByEmail($_POST['email']);
 
-		// TODO conectar DB e remover esse trecho
-		$_SESSION['id'] = 1;
-		$_SESSION['email'] = $_POST['email'];
-		$_SESSION['nome'] = 'Andre';
-
-		header('Location: /');
-		return;
-
-		if ($usuario->getPassword() === $_POST['password']) {
+		if ($usuario &&  password_verify($_POST['password'], $usuario->getPassword())) {
 			$_SESSION['id'] = $usuario->getId();
 			$_SESSION['email'] = $usuario->getEmail();
 			$_SESSION['nome'] = $usuario->getNome();
 
 			header('Location: /');
-		} else {
-			$this->errors['password'] = "Usuário ou senhas incorretos";
+
+			return;
 		}
+
+		$this->errors['password'] = "Usuário ou senhas incorretos";
+
+		AuthController::index();
 	}
 
 	public function store() {
@@ -83,9 +79,21 @@ class AuthController {
 			$this->errors = [];
 		}
 
-		$_SESSION['id'] = 1;
-		$_SESSION['email'] = $_POST['email'];
-		$_SESSION['nome'] = $_POST['nome'];
+		$usuario = Usuario::getByEmail($_POST['email']);
+
+		if ($usuario) {
+			$this->errors['email'] = "Esse e-mail já está cadastrado";
+
+			AuthController::cadastrar();
+
+			return;
+		}
+
+		$usuario = Usuario::store($_POST);
+
+		$_SESSION['id'] = $usuario->getId();
+		$_SESSION['email'] = $usuario->getEmail();
+		$_SESSION['nome'] = $usuario->getNome();
 
 		header('Location: /');
 	}
