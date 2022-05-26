@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="/public/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/public/css/config.css">
 	<link rel="stylesheet" href="/public/css/index.css">
+	<link rel="stylesheet" href="/public/css/detalhes.css">
+
 </head>
 
 <body>
@@ -21,10 +23,9 @@
 	<div class="container d-flex justify-content-between mt-4">
 		<p class="regular-24 font-plex color-gray-500">Olá, <?php echo $_SESSION['nome']; ?></p>
 		<a class="regular-24 font-plex color-gray-500" href="/editar-perfil">Editar Perfil</a>
+		<a class="regular-24 font-plex color-gray-500" href="/perfil">Minhas avaliações</a>
 		<a class="regular-24 font-plex color-gray-500" href="/catalogo">Catálogo</a>
-
-
-		<a class="regular-24 font-plex color-gray-500" href="/auth/logout">Sair</a>
+		<a class="regular-24 font-plex color-gray-500" href="/auth/logout">Sair <img class="logout" src="/public/images/power-on.png" /> </a>
 	</div>
 </body>
 
