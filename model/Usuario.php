@@ -95,6 +95,22 @@ class Usuario {
 		return $query->execute();
 	}
 
+	public function updatePassword($password) {
+		if (!$this->id) {
+			return false;
+		}
+
+		$db = DB::connect();
+
+		$sql = "UPDATE usuarios SET password = '" . password_hash($password, PASSWORD_DEFAULT) . "', updated_at = '" . date("Y-m-d H:i:s") . "' WHERE id = {$this->id};";
+
+		$query = $db->prepare($sql);
+
+		$query->execute();
+
+		return $this->get();
+	}
+
 	public function setId($id) {
 		$this->id = $id;
 	}

@@ -46,20 +46,24 @@ function validationEsqueceuSenha($data) {
 function validationRecuperarSenha($data) {
 	$errors = [];
 
+	if (!isset($data['email']) || empty($data['email'])) {
+		$errors['email'] = 'Não foi possível alterar a senha, email não enviado.';
+	}
+
 	if (!isset($data['token']) || empty($data['token'])) {
-		$errors['token'] = 'Não foi possível alterar a senha, token não enviado';
+		$errors['token'] = 'Não foi possível alterar a senha, token não enviado.';
 	}
 
 	if (!isset($data['password']) || empty($data['password'])) {
-		$errors['password'] = 'Nova senha é um campo obrigatório';
+		$errors['password'] = 'Nova senha é um campo obrigatório.';
 	}
 
 	if (!isset($data['password_confirmation']) || empty($data['password_confirmation'])) {
-		$errors['password_confirmation'] = 'Confirmação de senha é um campo obrigatório';
+		$errors['password_confirmation'] = 'Confirmação de senha é um campo obrigatório.';
 	}
 
 	if ($data['password'] !== $data['password_confirmation']) {
-		$errors['password_confirmation'] = 'As senhas são diferentes';
+		$errors['password_confirmation'] = 'As senhas são diferentes.';
 	}
 
 	return $errors;
