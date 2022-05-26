@@ -13,6 +13,6 @@ $mail = (object) [
 	'host' => 'smtp.mailtrap.io',
 	'port' => '2525',
 	'username' => '66669c6f21eeb5',
-	'passwordd' => '07420f5fd32908',
+	'password' => '07420f5fd32908',
 	'encryption' => 'tls'
 ];

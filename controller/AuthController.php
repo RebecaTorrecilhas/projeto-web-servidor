@@ -1,8 +1,10 @@
 <?php
 
 require_once 'model/Usuario.php';
+require_once 'model/ResetPassword.php';
 require_once 'utils/Utils.php';
 require_once 'utils/Validation.php';
+require_once 'utils/Mail.php';
 
 class AuthController {
 	public $errors = [];
@@ -125,9 +127,37 @@ class AuthController {
 			$this->errors = [];
 		}
 
-		// TODO
+		try {
+			$usuario = Usuario::getByEmail($_POST['email']);
 
-		$this->success = 'Confira sua caixa de e-mail para alterar a senha.';
+			if ($usuario) {
+				$token = getRandomString(128);
+
+				ResetPassword::store(['email' => $_POST['email'], 'token' => $token]);
+
+				$url = $_SERVER['HTTP_ORIGIN'] . "/recuperar-senha?token=$token&email=" . $_POST['email'];
+
+				$mail = Mail::setup();
+
+				$mail->addAddress($_POST['email']);
+
+				$mail->isHTML(true);
+				$mail->Subject = 'Redefinir senha - Web Servidor';
+
+				$body = 'Você está recebendo esse e-mail para redefinir sua senha. Caso não foi você desconsiderar esse e-mail. <br />';
+				$body .= "<a href='$url' target='_blank'>Clique aqui para alterar sua senha</a>";
+				$body .= '<br />Obrigado.';
+
+				$mail->Body = $body;
+				$mail->AltBody = "Voce esta recebendo esse e-mail para redefinir sua senha. Caso nao foi voce desconsiderar esse e-mail \n $url \n Obrigado.";
+
+				$mail->send();
+			}
+		} catch (Exception $e) {
+			// CONTINUE
+		}
+
+		$this->success = 'Confira seu e-mail para alterar a senha.';
 
 		AuthController::esqueceuSenha();
 	}
@@ -147,9 +177,28 @@ class AuthController {
 			$this->errors = [];
 		}
 
-		// TODO
+		$reset_password = new ResetPassword();
 
-		$this->success = 'Senha alterada com sucesso!';
+		$reset_password->setEmail($_POST['email']);
+		$reset_password->setToken($_POST['token']);
+
+		$exist = $reset_password->get();
+
+		if ($exist) {
+			$usuario = Usuario::getByEmail($_POST['email']);
+
+			if ($usuario) {
+				$usuario->updatePassword($_POST['password']);
+				$reset_password->destroy();
+
+				$this->success = 'Senha alterada com sucesso.';
+				$this->errors = [];
+			} else {
+				$this->errors['error'] = 'Não foi possível encontrar o usuário.';
+			}
+		} else {
+			$this->errors['erro'] = 'Não foi possível validar as informações.';
+		}
 
 		AuthController::recuperarSenha();
 	}
