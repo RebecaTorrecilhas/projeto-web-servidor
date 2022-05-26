@@ -4,20 +4,6 @@
 	align-items: center;
 }
 
-.card {
-	display: flex;
-	flex-direction: column;
-	width: 588px;
-	margin-top: 72px;
-	margin-bottom: 24px;
-	padding: 64px 102px;
-	border-radius: 8px;
-}
-
-.card h5 {
-	margin-bottom: 4px;
-}
-
 form {
 	margin-top: 40px;
 }
@@ -40,11 +26,6 @@ input {
 }
 
 @media screen and (max-width: 567px) {
-	.card {
-		width: 100%;
-		padding: 24px;
-	}
-
 	form {
 		margin-top: 24px;
 	}

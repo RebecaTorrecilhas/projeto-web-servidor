@@ -1,0 +1,30 @@
+{
+    "name": "vendor/webservidor",
+    "description": "projeto web servidor",
+    "autoload": {
+        "psr-4": {
+            "Vendor\\Webservidor\\": "src/"
+        },
+        "classmap": [
+            "./"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Rebeca Torrecilhas",
+            "email": "rebeca.torrecilhas@gmail.com"
+        },
+        {
+            "name": "Andre Lacomski",
+            "email": "andrelacomski1@gmail.com"
+        },
+        {
+            "name": "Guilherme Monteiro",
+            "email": "corvonauta.dev@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.6",
+        "nesbot/carbon": "^2.58"
+    }
+}

@@ -1,5 +1,6 @@
 <?php
 
+require "vendor/autoload.php";
 $path = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] :  '';
 
 $class = 'IndexController';

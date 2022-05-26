@@ -1,0 +1,12 @@
+.img-perfil {
+  background-image: url("/public/images/rebeca.png");
+  background-position: center;
+  background-size: cover;
+  outline: none;
+  background-repeat: no-repeat;
+  border-radius: 64px;
+  width: 128px;
+  height: 128px;
+  outline: none;
+  border: 3px gray solid;
+}
