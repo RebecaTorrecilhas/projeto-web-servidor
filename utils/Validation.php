@@ -32,19 +32,6 @@ function validationLogin($data) {
 	return $errors;
 }
 
-function validationEditarPerfil($data) {
-	$errors = [];
-
-	if (!isset($data['email']) || empty($data['email'])) {
-		$errors['email'] = 'E-mail é um campo obrigatório';
-	}
-
-	if (!isset($data['nome']) || empty($data['nome'])) {
-		$errors['nome'] = 'Nome é um campo obrigatório';
-	}
-
-	return $errors;
-}
 
 function validationEsqueceuSenha($data) {
 	$errors = [];
@@ -73,6 +60,30 @@ function validationRecuperarSenha($data) {
 
 	if ($data['password'] !== $data['password_confirmation']) {
 		$errors['password_confirmation'] = 'As senhas são diferentes';
+	}
+
+	return $errors;
+}
+
+function validationEditarPefil($data) {
+	$errors = [];
+
+	if (!isset($data['email']) || empty($data['email'])) {
+		$errors['email'] = 'E-mail é um campo obrigatório';
+	}
+
+	if ((isset($data['password']) || !empty($data['password'])) && ((!isset($data['confirmPassword'])) || ($data['confirmPassword']))) {
+		$errors['confirmPassword'] = 'É preciso confirmar a senha';
+	}
+
+	if ((isset($data['password']) || !empty($data['password'])) && ((isset($data['confirmPassword'])) || !empty($data['confirmPassword']))) {
+		if ($data['password'] !== $data['confirmPassword']) {
+			$errors['confirmPassword'] = 'As senhas são diferentes';
+		}
+	}
+
+	if (!isset($data['nome']) || empty($data['nome'])) {
+		$errors['nome'] = 'Nome é um campo obrigatório';
 	}
 
 	return $errors;
