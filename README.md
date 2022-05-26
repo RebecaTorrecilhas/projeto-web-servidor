@@ -4,7 +4,7 @@ Projeto da matéria Desenvolvimento Web-Servidor
 
 ## :wrench: Setup
 
-- Na pasta database importar o arquivo dump_inicial.sql no seu MySql;
+- Na pasta database importar o arquivo `dump_inicial.sql` e em seguida rodar `update_database.sql` no seu MySql;
 - Na pasta do projeto modifique o `./utils/Constants.php` com os acessos necessários para bancos de dados;
 - Para rodar: `php -S localhost:8000`;
 
@@ -29,6 +29,6 @@ Projeto da matéria Desenvolvimento Web-Servidor
 
 ### Faltando
 
-- Finalizar implementações das telas autenticadas;
-- Conectar as telas com Banco de dados;
-- Conectar a API The Movie DB para listar os filmes;
+- Finalizar implementações de listagem de usuários, favoritos e seguidores;
+- Conectar telas faltantes para o DB;
+- Melhorar as validações de erros;
