@@ -1,5 +1,6 @@
 <?php
 
+require_once 'model/Avaliacao.php';
 require_once 'utils/Utils.php';
 require_once 'utils/Validation.php';
 
@@ -16,7 +17,16 @@ class AvaliacaoController {
 	public function avaliar() {
 		redirectNotLogged();
 
-		// TODO
+		$data = [
+			'usuario' => $_SESSION['id'],
+			'filme' => $_POST['filme'],
+			'avaliacao' => $_POST['avaliacao'],
+			'comentario' => $_POST['comentario']
+		];
+
+		Avaliacao::store($data);
+
+		header('Location: /perfil');
 	}
 
 	public function update() {
