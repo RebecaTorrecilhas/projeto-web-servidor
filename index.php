@@ -82,6 +82,12 @@ switch ($path) {
 		$method = 'store';
 
 		break;
+	case '/user/editar-perfil':
+		$class = 'UsuarioController';
+		$method = 'update';
+
+		break;
+
 	default:
 		header('Location: /404.php');
 		return;
