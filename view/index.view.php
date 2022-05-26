@@ -21,6 +21,7 @@
 	<div class="container d-flex justify-content-between mt-4">
 		<p class="regular-16 color-gray-500">Olá, <?php echo $_SESSION['nome']; ?></p>
 		<a class="regular-16 color-gray-500" href="/editar-perfil">Editar Perfil</a>
+		<a class="regular-16 color-gray-500" href="/catalogo">Catálogo</a>
 
 
 		<a class="regular-16 color-gray-500" href="/auth/logout">Sair</a>
