@@ -1,6 +1,8 @@
 .poster {
   width: 250px;
   border-radius: 2px;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
 }
 
 .poster:hover {

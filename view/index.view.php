@@ -19,12 +19,12 @@
 	</header>
 
 	<div class="container d-flex justify-content-between mt-4">
-		<p class="regular-16 color-gray-500">Olá, <?php echo $_SESSION['nome']; ?></p>
-		<a class="regular-16 color-gray-500" href="/editar-perfil">Editar Perfil</a>
-		<a class="regular-16 color-gray-500" href="/catalogo">Catálogo</a>
+		<p class="regular-24 font-plex color-gray-500">Olá, <?php echo $_SESSION['nome']; ?></p>
+		<a class="regular-24 font-plex color-gray-500" href="/editar-perfil">Editar Perfil</a>
+		<a class="regular-24 font-plex color-gray-500" href="/catalogo">Catálogo</a>
 
 
-		<a class="regular-16 color-gray-500" href="/auth/logout">Sair</a>
+		<a class="regular-24 font-plex color-gray-500" href="/auth/logout">Sair</a>
 	</div>
 </body>
 
