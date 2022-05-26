@@ -60,6 +60,24 @@ class Avaliacao {
 		return $query->execute();
 	}
 
+	public function list() {
+		$db = DB::connect();
+
+		$query = $db->prepare("SELECT * FROM avaliacoes WHERE ava_usuario_id = {$this->ava_usuario_id}");
+
+		$query->execute();
+
+		return $query->fetchAll();
+	}
+
+	public function setUsuario($usuario) {
+		$this->ava_usuario_id = $usuario;
+	}
+
+	public function getUsuario() {
+		return $this->ava_usuario_id;
+	}
+
 	public function setId($id) {
 		$this->id = $id;
 	}

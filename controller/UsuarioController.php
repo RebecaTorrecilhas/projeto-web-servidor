@@ -1,15 +1,28 @@
 <?php
 
 require_once 'model/Usuario.php';
+require_once 'model/Avaliacao.php';
 require_once 'utils/Utils.php';
+require_once 'utils/theMovies.php';
 require_once 'utils/Validation.php';
 
 class UsuarioController {
 	public $errors = [];
 	public $success = null;
 
+	public $apiKey = "b4bc80661e9a1024dda361901d105ba0";
+
 	public function index() {
 		redirectNotLogged();
+		
+		$ava = new Avaliacao();
+		$ava->setUsuario($_SESSION["id"]);
+		$avaliacoes = $ava->list();
+
+		foreach ($avaliacoes as $key => $avaliacao) {
+			$movie = theMovies::createCurl("GET", '/movie/' . $avaliacao["ava_filme_id"] . '?api_key=' . $this->apiKey, null);
+			$avaliacoes[$key]["movie"] = $movie;
+		}
 
 		require_once 'view/perfil.view.php';
 	}
