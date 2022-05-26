@@ -24,10 +24,3 @@
 .movie:hover {
   cursor: pointer;
 }
-
-.page-title {
-  display: flex;
-  margin: 20px;
-  font-family: "IBM Plex Sans", sans-serif;
-  justify-content: center;
-}

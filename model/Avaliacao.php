@@ -6,6 +6,7 @@ class Avaliacao {
 	private $id;
 	private $email;
 	private $token;
+	private $ava_usuario_id;
 
 	static public function store($data) {
 		$db = DB::connect();
@@ -54,6 +55,24 @@ class Avaliacao {
 		$query = $db->prepare("DELETE FROM reset_password WHERE id = {$this->id}");
 
 		return $query->execute();
+	}
+
+	public function list() {
+		$db = DB::connect();
+
+		$query = $db->prepare("SELECT * FROM avaliacoes WHERE ava_usuario_id = {$this->ava_usuario_id}");
+
+		$query->execute();
+
+		return $query->fetchAll();
+	}
+
+	public function setUsuario($usuario) {
+		$this->ava_usuario_id = $usuario;
+	}
+
+	public function getUsuario() {
+		return $this->ava_usuario_id;
 	}
 
 	public function setId($id) {
