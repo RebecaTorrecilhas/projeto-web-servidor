@@ -4,6 +4,8 @@ require_once 'utils/Utils.php';
 require_once 'utils/Validation.php';
 require_once 'utils/theMovies.php';
 
+use Carbon\Carbon;
+
 class CatalogoController {
 	public $apiKey = "b4bc80661e9a1024dda361901d105ba0";
 
@@ -19,6 +21,15 @@ class CatalogoController {
 
 	public function detalhes() {
 		redirectNotLogged();
+
+		if (!$_GET['id']) {
+			header('Location: /catalogo');
+			return;
+		}
+
+		$movie = theMovies::createCurl('GET', '/movie/' . $_GET['id'] . '?api_key=' . $this->apiKey, null);
+
+		$release_date = Carbon::parse($movie->release_date)->format('d/m/Y');
 
 		require_once 'view/detalhes.view.php';
 	}
