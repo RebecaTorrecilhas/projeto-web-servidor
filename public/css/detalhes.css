@@ -35,6 +35,18 @@
 	margin-bottom: 20px;
 }
 
+.estrelas {
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.estrelas img {
+	cursor: pointer;
+	width: 24px;
+	height: 24px;
+	margin-right: 8px;
+}
+
 @media screen and (max-width: 992px) {
 	.detalhes img {
 		margin-right: 0px;

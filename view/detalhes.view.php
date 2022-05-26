@@ -42,9 +42,16 @@
 				<p class="titulo semibold-24 color-gray-500">Deixe sua avaliação aqui</p>
 
 				<form method="POST" action="/avaliar">
-					<p>Estrelas aqui fazer jS</p>
+					<div class="estrelas">
+						<img id="estrela-1" src="/public/images/star-checked.png" onclick="alterarAvaliacao(1)" />
+						<img id="estrela-2" src="/public/images/star-checked.png" onclick="alterarAvaliacao(2)" />
+						<img id="estrela-3" src="/public/images/star-checked.png" onclick="alterarAvaliacao(3)" />
+						<img id="estrela-4" src="/public/images/star-checked.png" onclick="alterarAvaliacao(4)" />
+						<img id="estrela-5" src="/public/images/star-checked.png" onclick="alterarAvaliacao(5)" />
+					</div>
 
-					<input type="hidden" name="avaliacao" />
+					<input type="hidden" name="filme" value=<?php echo $movie->id ?> />
+					<input type="hidden" name="avaliacao" id="avaliacao" value="5" />
 
 					<input type="textarea" name="comentario" />
 
@@ -67,6 +74,18 @@
 		} else {
 			document.getElementById('favoritar-texto').innerHTML = 'Favoritar';
 			document.getElementById('favoritar-img').setAttribute('src', '/public/images/like-uncheck.png');
+		}
+	}
+
+	function alterarAvaliacao(avaliacao) {
+		document.getElementById('avaliacao').value = avaliacao;
+
+		for (let i = 1; i <= 5; i++) {
+			if (i <= avaliacao) {
+				document.getElementById('estrela-' + i).setAttribute('src', '/public/images/star-checked.png');
+			} else {
+				document.getElementById('estrela-' + i).setAttribute('src', '/public/images/star-uncheck.png');
+			}
 		}
 	}
 </script>

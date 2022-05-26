@@ -24,7 +24,7 @@ class ResetPassword {
 		$id = $db->lastInsertId();
 
 		if ($id) {
-			$query = $db->prepare("SELECT * FROM usuarios WHERE id = {$id};");
+			$query = $db->prepare("SELECT * FROM reset_password WHERE id = {$id};");
 
 			$query->execute();
 

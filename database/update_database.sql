@@ -6,3 +6,10 @@ AFTER
 	`usu_nome`;
 
 DROP TABLE files;
+
+ALTER TABLE
+	avaliacoes
+ADD
+	COLUMN `ava_filme_id` INT NOT NULL
+AFTER
+	`ava_avaliacao`;
