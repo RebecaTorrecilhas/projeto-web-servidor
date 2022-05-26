@@ -70,14 +70,6 @@ class Avaliacao {
 		return $query->fetchAll();
 	}
 
-	public function setUsuario($usuario) {
-		$this->ava_usuario_id = $usuario;
-	}
-
-	public function getUsuario() {
-		return $this->ava_usuario_id;
-	}
-
 	public function setId($id) {
 		$this->id = $id;
 	}
