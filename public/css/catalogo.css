@@ -1,0 +1,33 @@
+.poster {
+  width: 250px;
+  border-radius: 2px;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.poster:hover {
+  transform: scale(1.07);
+}
+
+.movies-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.movie {
+  margin: 1%;
+}
+
+.movie:hover {
+  cursor: pointer;
+}
+
+.page-title {
+  display: flex;
+  margin: 20px;
+  font-family: "IBM Plex Sans", sans-serif;
+  justify-content: center;
+}

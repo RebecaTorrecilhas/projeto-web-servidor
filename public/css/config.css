@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@1,600&display=swap");
 
 *:focus {
 	outline: none;
@@ -76,6 +77,12 @@ input:focus {
 	font-weight: 400;
 	font-size: 24px;
 	line-height: 30px;
+}
+
+.regular-30 {
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 30px;
 }
 
 .regular-16 {
@@ -218,7 +225,11 @@ input:focus {
 }
 
 .card h5 {
-	margin-bottom: 4px;
+  margin-bottom: 4px;
+}
+
+.font-plex {
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
 @media screen and (max-width: 576px) {
@@ -232,3 +243,4 @@ input:focus {
 		line-height: 24px;
 	}
 }
+

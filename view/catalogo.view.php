@@ -19,7 +19,20 @@
 	</header>
 
 	<div class="container">
-		<p class="regular-16 color-gray-500">Olá, <?php echo $_SESSION['nome']; ?></p>
+		<div>
+			<div class="page-title">
+				<p class="regular-30 color-gray-500"> Catálogo de filmes </p>
+			</div>
+
+			<div class="movies-list">
+				<?php foreach ($listMovies->results as $movie) { ?>
+					<a class="movie" href=<?php echo '/catalogo/detalhes?id=' . $movie->id ?>>
+						<img class="poster" src=<?php echo 'https://image.tmdb.org/t/p/w500/' . $movie->poster_path ?>>
+					</a>
+				<?php } ?>
+			</div>
+			
+		</div>
 	</div>
 </body>
 
