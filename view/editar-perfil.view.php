@@ -25,13 +25,13 @@
 			<?php if ($this->success) { ?>
 				<p class="success bg-success"><?php echo $this->success ?? '' ?></p>
 			<?php } ?>
-			
+
 			<p class="regular-16 color-gray-500">Olá, <?php echo $_SESSION['nome']; ?></p>
 
 			<form method="POST" action="/user/editar-perfil" enctype="multipart/form-data">
 				<div class="container">
 					<button type="button" onClick="addImage()" class="button-no-style">
-						<div class="img-perfil" id="image" <?php echo "style='background-image: url(" . '"/' . $usuario->getFoto() . '"' . ")'" ?> />
+						<div class="img-perfil" id="image" <?php echo $usuario->getFoto() ? "style='background-image: url(" . '"/' . $usuario->getFoto() . '"' . ")'" : null ?> />
 					</button>
 					<input type="file" name="photo" hidden id="photo" />
 				</div>
