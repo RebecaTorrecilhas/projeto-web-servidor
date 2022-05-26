@@ -42,9 +42,9 @@ switch ($path) {
 		$method = 'detalhes';
 
 		break;
-	case '/avaliacao':
+	case '/avaliar':
 		$class = 'AvaliacaoController';
-		$method = 'avaliacao';
+		$method = 'avaliar';
 
 		break;
 	case '/editar-perfil':

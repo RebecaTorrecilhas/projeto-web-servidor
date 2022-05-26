@@ -13,7 +13,7 @@ class AvaliacaoController {
 		require_once 'view/avaliacao.view.php';
 	}
 
-	public function store() {
+	public function avaliar() {
 		redirectNotLogged();
 
 		// TODO
