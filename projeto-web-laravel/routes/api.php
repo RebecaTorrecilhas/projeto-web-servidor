@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AutenticacaoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::controller(AutenticacaoController::class)->group(function () {
+    Route::post('/autenticacao', 'login');
+    Route::post('/autenticacao/recuperar-senha', 'forgotPassword');
+    Route::post('/autenticacao/alterar-senha', 'changePassword');
+});
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
 });
