@@ -8,8 +8,6 @@
 	<link rel="shortcut icon" href="/public/images/favicon.png" />
 	<link rel="stylesheet" href="/public/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/public/css/config.css">
-	<link rel="stylesheet" href="/public/css/detalhes.css">
-
 	<link rel="stylesheet" href="/public/css/perfil.css">
 </head>
 
@@ -41,6 +39,14 @@
 
 				<div class="avaliacao">
 					<p class="titulo semibold-24 color-gray-500">Sua avaliação</p>
+
+					<div class="estrelas">
+						<img id="estrela-1" src='/public/images/star-<?php echo $avaliacao['ava_avaliacao'] >= 1 ? 'checked' : 'uncheck' ?>.png' />
+						<img id="estrela-2" src='/public/images/star-<?php echo $avaliacao['ava_avaliacao'] >= 2 ? 'checked' : 'uncheck' ?>.png' />
+						<img id="estrela-3" src='/public/images/star-<?php echo $avaliacao['ava_avaliacao'] >= 3 ? 'checked' : 'uncheck' ?>.png' />
+						<img id="estrela-4" src='/public/images/star-<?php echo $avaliacao['ava_avaliacao'] >= 4 ? 'checked' : 'uncheck' ?>.png' />
+						<img id="estrela-5" src='/public/images/star-<?php echo $avaliacao['ava_avaliacao'] >= 5 ? 'checked' : 'uncheck' ?>.png' />
+					</div>
 
 					<form method="POST" action="/avaliar">
 						<input type="textarea" name="comentario" value='<?php echo $avaliacao["ava_comentario"] ?>' disabled />

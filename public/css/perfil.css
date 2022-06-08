@@ -1,0 +1,37 @@
+.detalhes {
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+
+.detalhes img {
+	margin-right: 40px;
+	width: 100%;
+	max-width: 300px;
+	border-radius: 8px;
+}
+
+.avaliacao {
+	margin-top: 50px;
+}
+
+.avaliacao .titulo {
+	margin-bottom: 16px;
+}
+
+.avaliacao input {
+	width: 100%;
+	height: 100px;
+	margin-bottom: 20px;
+}
+
+.estrelas {
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.estrelas img {
+	cursor: default;
+	width: 24px;
+	height: 24px;
+	margin-right: 8px;
+}
