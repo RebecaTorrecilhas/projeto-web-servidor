@@ -26,7 +26,7 @@ Route::controller(AutenticacaoController::class)->prefix("autenticacao")->group(
 });
 
 Route::controller(UsuarioController::class)->group(function () {
-    Route::post('/cadastrar', 'store');
+    Route::post('/usuario', 'store');
 });
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
