@@ -2,18 +2,30 @@
 
 Projeto da matéria Desenvolvimento Web-Servidor
 
-## :wrench: Setup
+## :wrench: Setup para o projeto PHP
 
 - Na pasta database importar o arquivo `dump_inicial.sql` e em seguida rodar `update_database.sql` no seu MySql;
 - Na pasta do projeto modifique o `./utils/Constants.php` com os acessos necessários para bancos de dados;
 - Para rodar: `php -S localhost:8000`;
 
-## 🔀 Versões
+## 🔀 Versões para o projeto PHP
 
 - MySQL 8.0;
 - PHP 7.3;
 
+## :wrench: Setup para o projeto Laravel
+
+- Na pasta do laravel rodar `composer install`, `cp .env.example .env`, `php artisan key:generate` e `php artisan migrate`;
+- Para rodar: `php artisan serve`;
+
+## 🔀 Versões para o projeto laravel
+
+- MySQL 8.0;
+- PHP 8.0;
+
 ## ⚠️ Observações
+
+- Biblioteca do postman disponível com os endpoints da API em laravel;
 
 ### Integrantes
 
@@ -22,13 +34,6 @@ Projeto da matéria Desenvolvimento Web-Servidor
 - Rebeca Torrecilhas;
 
 ### Desenvolvimento
-
-- Andre: Estrutura base e padronização de MVC;
-- Luiz: Correção das rotas de view e chamadas dos Controllers;
-- Rebeca: Design e validações de esqueceu senha e recuperar senha;
-
-### Faltando
-
-- Finalizar implementações de listagem de usuários, favoritos e seguidores;
-- Conectar telas faltantes para o DB;
-- Melhorar as validações de erros;
+ - Andre:
+ - Luiz:
+ - Rebeca:
