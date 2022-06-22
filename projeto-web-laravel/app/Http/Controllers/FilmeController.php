@@ -8,6 +8,6 @@ class FilmeController extends Controller {
     public function listar(Request $request) {
     }
 
-    public function buscar(Request $request, $id) {
+    public function get(Request $request, $id) {
     }
 }
