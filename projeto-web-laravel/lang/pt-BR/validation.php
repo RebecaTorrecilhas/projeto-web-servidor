@@ -186,7 +186,12 @@ return [
         'description' => 'descrição',
         'password_confirmation' => 'confirmação da senha',
         'current_password' => 'senha atual',
-		'usu_nome' => 'nome'
+		'usu_nome' => 'nome',
+        'ava_avaliacao' => 'avaliação',
+        'ava_id_filme' => 'filme',
+        'ava_comentario' => 'comentário',
+        'fav_id_filme' => 'filme',
+        'seg_id_seguindo' => 'seguindo'
     ],
 
 ];
