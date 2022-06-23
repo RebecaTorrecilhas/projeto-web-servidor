@@ -1,0 +1,912 @@
+{
+	"info": {
+		"_postman_id": "1cb955f1-79dc-4be7-b2c5-f2f17fddeb1d",
+		"name": "API Projeto Web Servidor",
+		"description": "API em Laravel da disciplina Desenvolvimento Web-Servidor.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Autenticação",
+			"item": [
+				{
+					"name": "/api/autenticacao",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"andre@gmail.com\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/autenticacao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"autenticacao"
+							]
+						},
+						"description": "Endpoint para realizar o login com email e senha."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/autenticacao/logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "2|daWwZZZ4ca7GLPPPX1A0MPgs8IpKKOhodiPzxCcH",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/autenticacao/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"autenticacao",
+								"logout"
+							]
+						},
+						"description": "Endpoint para realizar o logout."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/autenticacao/esqueceu-senha",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"andre@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/autenticacao/esqueceu-senha",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"autenticacao",
+								"esqueceu-senha"
+							]
+						},
+						"description": "Endpoint para disparar e-mail de recuperar senha."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/autenticacao/recuperar-senha",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"andre@gmail.com\",\n    \"token\": \"token_aqui\",\n    \"password\": \"12345678\",\n    \"password_confirmation\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/autenticacao/recuperar-senha",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"autenticacao",
+								"recuperar-senha"
+							]
+						},
+						"description": "Endpoint para alterar a senha."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para autenticação."
+		},
+		{
+			"name": "Avaliação",
+			"item": [
+				{
+					"name": "/api/avaliacao",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ava_id_filme\": 675353,\n    \"ava_avaliacao\": 5,\n    \"ava_comentario\": \"TOP\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/avaliacao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"avaliacao"
+							]
+						},
+						"description": "Endpoint para cadastrar uma avaliação de filme."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/avaliacao/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/avaliacao/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"avaliacao",
+								"1"
+							]
+						},
+						"description": "Endpoint para buscar uma avaliação de filme."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/avaliacao/{id}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ava_avaliacao\": 5,\n    \"ava_comentario\": \"Filme topper!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/avaliacao/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"avaliacao",
+								"1"
+							]
+						},
+						"description": "Endpoint para atualizar uma avaliação de filme."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/avaliacao/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/avaliacao/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"avaliacao",
+								"1"
+							]
+						},
+						"description": "Endpoint para apagar uma avaliação de filme."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/avaliacao/listar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"page\": 1,\n    \"rows\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/avaliacao/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"avaliacao",
+								"listar"
+							]
+						},
+						"description": "Endpoint para listar as avaliações do usuário."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/avaliacao/avaliacoes-seguidores",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"page\": 1,\n    \"rows\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/avaliacao/avaliacoes-seguidores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"avaliacao",
+								"avaliacoes-seguidores"
+							]
+						},
+						"description": "Endpoint para listar as avaliações dos usuários que o usuário logado segue."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para avaliação de filmes."
+		},
+		{
+			"name": "Favorito",
+			"item": [
+				{
+					"name": "/api/favorito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fav_id_filme\": 675353\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/favorito",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"favorito"
+							]
+						},
+						"description": "Endpoint para favoritar um filme."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/favorito/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/favorito/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"favorito",
+								"1"
+							]
+						},
+						"description": "Endpoint para apagar um filme dos favoritos."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/favorito/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/favorito/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"favorito",
+								"1"
+							]
+						},
+						"description": "Endpoint para buscar o filme favorito."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/favorito/listar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rows\": 10,\n    \"page\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/favorito/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"favorito",
+								"listar"
+							]
+						},
+						"description": "Endpoint para listar os favoritos do usuário logado."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para favoritar filmes."
+		},
+		{
+			"name": "Filme",
+			"item": [
+				{
+					"name": "/api/filme/populares",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/filme/populares",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"filme",
+								"populares"
+							]
+						},
+						"description": "Endpoint para buscar os filmes populares."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/filme/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/filme/675353",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"filme",
+								"675353"
+							]
+						},
+						"description": "Endpoint para buscar um filme pelo ID."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/filme/buscar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"search\": \"Shrek\",\n    \"page\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/filme/buscar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"filme",
+								"buscar"
+							]
+						},
+						"description": "Endpoint para pesquisar filmes."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para filmes."
+		},
+		{
+			"name": "Seguidor",
+			"item": [
+				{
+					"name": "/api/seguidor/1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/seguidor/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"seguidor",
+								"1"
+							]
+						},
+						"description": "Endpoint para remover um seguidor."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/seguidor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"seg_id_seguindo\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/seguidor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"seguidor"
+							]
+						},
+						"description": "Endpoint para seguir um usuário."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/seguidor/seguidores",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rows\": 10,\n    \"page\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/seguidor/seguidores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"seguidor",
+								"seguidores"
+							]
+						},
+						"description": "Endpoint para listar os seguidores do usuário logado."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/seguidor/seguindo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rows\": 10,\n    \"page\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/seguidor/seguindo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"seguidor",
+								"seguindo"
+							]
+						},
+						"description": "Endpoint para buscar os usuários que o usuário logado segue."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/seguidor/seguidores/{id}",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rows\": 10,\n    \"page\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/seguidor/seguidores/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"seguidor",
+								"seguidores",
+								"1"
+							]
+						},
+						"description": "Endpoint para buscar os seguidores de um usuário pelo ID."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/seguidor/seguindo/{id}",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rows\": 10,\n    \"page\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/seguidor/seguindo/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"seguidor",
+								"seguindo",
+								"1"
+							]
+						},
+						"description": "Endpoint para buscar os usuários que o usuário segue através do ID."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para seguidores."
+		},
+		{
+			"name": "Usuário",
+			"item": [
+				{
+					"name": "/api/usuario",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"andre@gmail.com\",\n    \"password\": \"123456\",\n    \"usu_nome\": \"Andre\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"usuario"
+							]
+						},
+						"description": "Endpoint para cadastro de usuário."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"usuario"
+							]
+						},
+						"description": "Endpoint para apagar usuário logado."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"usuario"
+							]
+						},
+						"description": "Endpoint para buscar usuário logado."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"andre@gmail.com\",\n    \"password\": \"123456\",\n    \"password_confirmation\": \"123456\",\n    \"usu_nome\": \"Andre T Lacomski\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"usuario"
+							]
+						},
+						"description": "Endpoint para atualizar o usuário logado."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/usuario/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/usuario/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"usuario",
+								"1"
+							]
+						},
+						"description": "Endpoint para buscar um usuário pelo ID."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/usuario/foto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "foto",
+									"type": "file",
+									"src": "/home/hmt-16/Pictures/laonlabs.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/usuario/foto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"usuario",
+								"foto"
+							]
+						},
+						"description": "Endpoint para adicionar foto de perfil do usuário."
+					},
+					"response": []
+				},
+				{
+					"name": "/api/usuario/foto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/usuario/foto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"usuario",
+								"foto"
+							]
+						},
+						"description": "Endpoint para apagar foto de perfil do usuário."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para usuários."
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "4|BaedpAaBattdyW0I76074ficO7iN6fTTc190KOYK"
+		}
+	]
+}

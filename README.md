@@ -25,8 +25,8 @@ Projeto da matéria Desenvolvimento Web-Servidor
 - PHP 8.0;
 
 ## ⚠️ Observações
-
 - Biblioteca do postman disponível com os endpoints da API em laravel;
+- Para realizar os testes, basta importar a biblioteca no postman e realizar as requisições com os dados informados na mesma;
 
 ### Integrantes
 
