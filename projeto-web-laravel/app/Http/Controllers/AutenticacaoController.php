@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuario;
+use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Validator;
 
 class AutenticacaoController extends Controller {
@@ -29,11 +31,5 @@ class AutenticacaoController extends Controller {
 		$request->user()->currentAccessToken()->delete();
 
 		return response(null, 200);
-	}
-
-	public function forgotPassword(Request $request) {
-	}
-
-	public function changePassword(Request $request) {
 	}
 }

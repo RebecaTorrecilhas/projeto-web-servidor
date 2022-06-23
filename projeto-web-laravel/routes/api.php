@@ -21,8 +21,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(AutenticacaoController::class)->prefix("autenticacao")->group(function () {
 	Route::post('/', 'login');
-	Route::post('/recuperar-senha', 'forgotPassword');
-	Route::post('/alterar-senha', 'changePassword');
 });
 
 Route::controller(UsuarioController::class)->group(function () {

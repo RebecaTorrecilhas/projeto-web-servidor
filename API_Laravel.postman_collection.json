@@ -70,68 +70,6 @@
 						"description": "Endpoint para realizar o logout."
 					},
 					"response": []
-				},
-				{
-					"name": "/api/autenticacao/esqueceu-senha",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"andre@gmail.com\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8000/api/autenticacao/esqueceu-senha",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"autenticacao",
-								"esqueceu-senha"
-							]
-						},
-						"description": "Endpoint para disparar e-mail de recuperar senha."
-					},
-					"response": []
-				},
-				{
-					"name": "/api/autenticacao/recuperar-senha",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"andre@gmail.com\",\n    \"token\": \"token_aqui\",\n    \"password\": \"12345678\",\n    \"password_confirmation\": \"12345678\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8000/api/autenticacao/recuperar-senha",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"autenticacao",
-								"recuperar-senha"
-							]
-						},
-						"description": "Endpoint para alterar a senha."
-					},
-					"response": []
 				}
 			],
 			"description": "Endpoints para autenticação."
