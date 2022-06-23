@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use File;
 
 class UsuarioController extends Controller {
 	public function store(Request $request) {
@@ -84,8 +83,7 @@ class UsuarioController extends Controller {
 	public function destroyFoto(Request $request) {
 		$usuario = Usuario::where('id', $request->user()->id)->whereNotNull('usu_foto_perfil')->firstOrFail();
 
-		// Verificar porque não apaga
-		File::delete($usuario->usu_foto_perfil);
+		unlink(storage_path('app/'.$usuario->usu_foto_perfil));
 
 		$usuario->usu_foto_perfil = null;
 
