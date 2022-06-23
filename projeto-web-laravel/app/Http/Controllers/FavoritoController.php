@@ -29,9 +29,15 @@ class FavoritoController extends Controller {
 	}
 
 	public function listar(Request $request) {
+		$favoritos = Favorito::where('fav_id_usuario', $request->user()->id)->paginate($request->rows);
+
+		return response()->json($favoritos);
 	}
 
 	public function get(Request $request, $id) {
+		$favorito = Favorito::where(['id' => $id, 'fav_id_usuario' => $request->user()->id])->firstOrFail();
+
+		return response()->json($favorito);
 	}
 
 	public function destroy(Request $request, $id) {

@@ -43,7 +43,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 		Route::delete('/{id}', 'destroy');
 	});
 
-	Route::controller(FavoritoController::class)->prefix('favoritos')->group(function () {
+	Route::controller(FavoritoController::class)->prefix('favorito')->group(function () {
 		Route::post('/', 'store');
 		Route::post('/listar', 'listar');
 		Route::get('/{id}', 'get');
@@ -61,12 +61,17 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 	});
 
 	Route::controller(SeguindoController::class)->prefix('seguidor')->group(function () {
-		Route::post('/{id}', 'follow');
+		Route::post('/', 'follow');
 		Route::delete('/{id}', 'unfollow');
+		Route::post('/seguidores', 'seguidores');
+		Route::post('/seguindo', 'seguindo');
+		Route::post('/seguidores/{id}', 'listaSeguidores');
+		Route::post('/seguindo/{id}', 'listaSeguindo');
 	});
 
 	Route::controller(FilmeController::class)->prefix('filme')->group(function () {
-		Route::post('/listar', 'listar');
+		Route::post('/buscar', 'buscarFilmes');
+		Route::get('/populares', 'listarPopulares');
 		Route::get('/{id}', 'get');
 	});
 });

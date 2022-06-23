@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Facade;
 
 return [
 
+	'tm_url' => env('TM_URL', ''),
+	'tm_api_key' => env('TM_API_KEY', ''),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
